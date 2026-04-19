@@ -1,38 +1,47 @@
-/* التنسيق الأساسي */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Segoe UI', sans-serif; background: #0f172a; color: white; overflow-x: hidden; }
+/* الألوان الأساسية مالتج */
+:root { --bg: #0b132b; --text: #fff; --glass: rgba(255, 255, 255, 0.05); }
 
-.layout-container { display: flex; min-height: 100vh; }
+body { 
+    margin: 0; background: var(--bg); color: var(--text); 
+    font-family: 'Poppins', sans-serif; overflow-x: hidden;
+}
+
+.layout-container { display: flex; height: 100vh; }
 
 /* Sidebar - الشريط الجانبي */
 .sidebar { 
-    width: 80px; background: rgba(255,255,255,0.05); 
-    display: flex; flex-direction: column; align-items: center; padding: 20px 0;
+    width: 80px; background: var(--glass); display: flex; 
+    flex-direction: column; align-items: center; justify-content: center;
 }
+
 .sidebar button { 
-    background: none; border: none; color: #64748b; 
-    font-size: 1.5rem; margin: 15px 0; cursor: pointer; transition: 0.3s;
+    background: none; border: none; color: #555; 
+    font-size: 1.5rem; margin: 15px 0; cursor: pointer; 
 }
-.sidebar button.active { color: #38bdf8; }
 
 /* المحتوى الرئيسي */
-.main-content { flex: 1; padding: 40px; text-align: center; }
-.temp { font-size: 8rem; font-weight: bold; margin: 20px 0; }
-h1 { font-size: 3rem; text-transform: uppercase; letter-spacing: 5px; }
+.main-content { flex: 1; padding: 40px; text-align: center; position: relative; }
+h1 { font-size: 4rem; letter-spacing: 10px; margin-top: 20px; }
+.temp { font-size: 10rem; font-weight: bold; margin: 10px 0; }
 
-/* تعديلات الموبايل - هنا السحر */
+/* التوقعات - 7 Day Forecast */
+.forecast-container { 
+    display: flex; justify-content: center; gap: 20px; margin-top: 30px; 
+}
+
+/* --- تصليح الموبايل بدون تخريب الحاسبة --- */
 @media (max-width: 600px) {
     .layout-container { flex-direction: column; }
     .sidebar { 
-        width: 100%; height: 60px; flex-direction: row; 
-        justify-content: space-around; padding: 0; order: 2; /* ينزل الشريط تحت */
+        width: 100%; height: auto; flex-direction: row; 
+        padding: 10px; order: 2; 
     }
-    .sidebar button { margin: 0; font-size: 1.2rem; }
+    .sidebar button { margin: 0 10px; font-size: 1.2rem; }
     .main-content { padding: 20px; order: 1; }
-    .temp { font-size: 4rem; }
-    h1 { font-size: 1.5rem; letter-spacing: 2px; }
-    .forecast-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    h1 { font-size: 2rem; letter-spacing: 3px; }
+    .temp { font-size: 5rem; }
+    .forecast-container { flex-direction: column; align-items: center; }
 }
 
-/* تأثيرات المطر والثلج (تأكدي إنها موجودة بملفك الأصلي) */
-#fx-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
+/* طبقة المطر والثلج */
+#fx-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
