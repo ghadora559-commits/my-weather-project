@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCast Elite | Ghadeer Ali</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-mode">
+    <div id="fx-layer"></div>
+
+    <div class="layout-container">
+        <aside class="sidebar glass">
+            <div class="logo">GA</div>
+            <nav class="weather-nav">
+                <button onclick="changeWeather('sun', this)" class="nav-btn active"><i class="fas fa-sun"></i></button>
+                <button onclick="changeWeather('rain', this)" class="nav-btn"><i class="fas fa-cloud-showers-heavy"></i></button>
+                <button onclick="changeWeather('snow', this)" class="nav-btn"><i class="fas fa-snowflake"></i></button>
+                <button onclick="changeWeather('bolt', this)" class="nav-btn"><i class="fas fa-bolt"></i></button>
+            </nav>
+            <button class="theme-switch" onclick="toggleWhite()"><i class="fas fa-moon" id="t-icon"></i></button>
+        </aside>
+
+        <main class="scrollable-content">
+            <section class="hero-card glass">
+                <h1 class="city">BAGHDAD</h1>
+                <p class="date">Sunday, 19 April 2026</p>
+                <div class="main-stats">
+                    <span class="temp">24°</span>
+                    <div class="visual">
+                        <div id="sun-box" class="sun-pro"></div>
+                        <p id="weather-label">CLEAR SKY</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="forecast-grid glass">
+                <h3>7-Day Forecast</h3>
+                <div class="days-container">
+                    <div class="day-card"><span>Mon</span><i class="fas fa-sun"></i>28°</div>
+                    <div class="day-card"><span>Tue</span><i class="fas fa-cloud"></i>26°</div>
+                    <div class="day-card"><span>Wed</span><i class="fas fa-bolt"></i>21°</div>
+                    <div class="day-card"><span>Thu</span><i class="fas fa-snowflake"></i>4°</div>
+                    <div class="day-card"><span>Fri</span><i class="fas fa-cloud-rain"></i>18°</div>
+                </div>
+            </section>
+
+            <footer class="ghadeer-footer glass">
+                <p>Designed with Passion by <strong>Ghadeer Ali</strong></p>
+                <div class="social-links">
+                    <a href="https://instagram.com/gh.serein" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://t.me/Ghadoraserein" target="_blank"><i class="fab fa-telegram"></i></a>
+                    <a href="mailto:ghadora559@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </footer>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
