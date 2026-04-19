@@ -1,12 +1,38 @@
-body {
-    background-color: #0f172a;
-    color: white;
-    font-family: sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 20px;
+/* التنسيق الأساسي */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', sans-serif; background: #0f172a; color: white; overflow-x: hidden; }
+
+.layout-container { display: flex; min-height: 100vh; }
+
+/* Sidebar - الشريط الجانبي */
+.sidebar { 
+    width: 80px; background: rgba(255,255,255,0.05); 
+    display: flex; flex-direction: column; align-items: center; padding: 20px 0;
 }
-.temp { font-size: 5rem; font-weight: bold; }
-h1 { font-size: 2rem; }
-/* هذا السطر يخلي كل شي يترتب بالموبايل */
-div, section, aside { width: 100%; max-width: 400px; margin: auto; }
+.sidebar button { 
+    background: none; border: none; color: #64748b; 
+    font-size: 1.5rem; margin: 15px 0; cursor: pointer; transition: 0.3s;
+}
+.sidebar button.active { color: #38bdf8; }
+
+/* المحتوى الرئيسي */
+.main-content { flex: 1; padding: 40px; text-align: center; }
+.temp { font-size: 8rem; font-weight: bold; margin: 20px 0; }
+h1 { font-size: 3rem; text-transform: uppercase; letter-spacing: 5px; }
+
+/* تعديلات الموبايل - هنا السحر */
+@media (max-width: 600px) {
+    .layout-container { flex-direction: column; }
+    .sidebar { 
+        width: 100%; height: 60px; flex-direction: row; 
+        justify-content: space-around; padding: 0; order: 2; /* ينزل الشريط تحت */
+    }
+    .sidebar button { margin: 0; font-size: 1.2rem; }
+    .main-content { padding: 20px; order: 1; }
+    .temp { font-size: 4rem; }
+    h1 { font-size: 1.5rem; letter-spacing: 2px; }
+    .forecast-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+}
+
+/* تأثيرات المطر والثلج (تأكدي إنها موجودة بملفك الأصلي) */
+#fx-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
