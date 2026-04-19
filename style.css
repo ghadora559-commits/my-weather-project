@@ -186,3 +186,33 @@ function createPart(cls) {
 @keyframes fall {
     to { transform: translateY(110vh) rotate(360deg); }
 }
+/* هذا الكود يخلي الموقع يصير نزاكة بالموبايل */
+@media (max-width: 600px) {
+    .layout-container {
+        flex-direction: column; /* يخلي الشريط الجانبي يصير فوك أو يتصغر */
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+
+    .temp {
+        font-size: 4rem; /* تصغير رقم درجة الحرارة */
+    }
+
+    h1 {
+        font-size: 1.8rem; /* تصغير كلمة BAGHDAD */
+    }
+
+    .forecast-container {
+        grid-template-columns: repeat(2, 1fr); /* يخلي التوقعات تطلع ثنين ثنين */
+    }
+}
